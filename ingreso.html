@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Ingreso de Datos de Clientes</title>
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        label {
+            font-weight: bold;
+            margin-top: 10px;
+            display: block;
+        }
+
+        input[type="text"], input[type="email"], input[type="tel"], select {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #2c3e50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #1a252f;
+        }
+
+        .error {
+            color: red;
+            font-size: 12px;
+        }
+
+        .success {
+            color: green;
+            font-size: 14px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Ingreso de Datos del Cliente</h2>
+        <form id="clienteForm">
+            <label for="cedula">Cédula</label>
+            <input type="text" id="cedula" placeholder="Ingrese la cédula" required>
+            <span id="cedulaError" class="error"></span>
+
+            <label for="apellidos">Apellidos</label>
+            <input type="text" id="apellidos" placeholder="Ingrese los apellidos" required>
+
+            <label for="nombres">Nombres</label>
+            <input type="text" id="nombres" placeholder="Ingrese los nombres" required>
+
+            <label for="direccion">Dirección</label>
+            <input type="text" id="direccion" placeholder="Ingrese la dirección" required>
+
+            <label for="telefono">Teléfono</label>
+            <input type="tel" id="telefono" placeholder="Ingrese el teléfono" required>
+            <span id="telefonoError" class="error"></span>
+
+            <label for="correo">Correo Electrónico</label>
+            <input type="email" id="correo" placeholder="Ingrese el correo electrónico" required>
+
+            <label for="ciudad">Ciudad</label>
+            <select id="ciudad" required>
+                <option value="">Seleccione una ciudad</option>
+                <option value="Quito">Quito</option>
+                <option value="Guayaquil">Guayaquil</option>
+                <option value="Cuenca">Cuenca</option>
+                <option value="Manta">Manta</option>
+            </select>
+
+            <button type="submit">Registrar Cliente</button>
+            <p id="resultado" class="success"></p>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('clienteForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            // Obtener los valores de los campos
+            let cedula = document.getElementById('cedula').value;
+            let telefono = document.getElementById('telefono').value;
+            let resultado = document.getElementById('resultado');
+            let cedulaError = document.getElementById('cedulaError');
+            let telefonoError = document.getElementById('telefonoError');
+
+            // Resetear los mensajes de error
+            cedulaError.textContent = '';
+            telefonoError.textContent = '';
+            resultado.textContent = '';
+
+            // Validación básica de cédula (10 dígitos)
+            if (!/^\d{10}$/.test(cedula)) {
+                cedulaError.textContent = 'La cédula debe tener 10 dígitos numéricos.';
+                return;
+            }
+
+            // Validación básica de teléfono (7 a 10 dígitos)
+            if (!/^\d{7,10}$/.test(telefono)) {
+                telefonoError.textContent = 'El teléfono debe tener entre 7 y 10 dígitos numéricos.';
+                return;
+            }
+
+            // Si todo está correcto
+            resultado.textContent = 'Cliente registrado exitosamente!';
+        });
+    </script>
+
+</body>
+</html>
