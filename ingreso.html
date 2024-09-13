@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulario de Ingreso de Datos de Clientes</title>
-    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
     <style>
+        /* Estilos generales de la página */
         body {
             font-family: 'Arial', sans-serif;
             background-color: #f0f0f0;
@@ -13,6 +13,7 @@
             padding: 0;
         }
 
+        /* Contenedor principal del formulario */
         .container {
             max-width: 600px;
             margin: 50px auto;
@@ -22,17 +23,20 @@
             border-radius: 8px;
         }
 
+        /* Estilo del título del formulario */
         h2 {
             text-align: center;
             color: #333;
         }
 
+        /* Estilo de las etiquetas de los campos */
         label {
             font-weight: bold;
             margin-top: 10px;
             display: block;
         }
 
+        /* Estilo de los campos de entrada */
         input[type="text"], input[type="email"], input[type="tel"], select {
             width: 100%;
             padding: 10px;
@@ -42,6 +46,7 @@
             border-radius: 4px;
         }
 
+        /* Estilo del botón */
         button {
             width: 100%;
             padding: 10px;
@@ -53,15 +58,12 @@
             font-size: 16px;
         }
 
+        /* Efecto hover en el botón */
         button:hover {
             background-color: #1a252f;
         }
 
-        .error {
-            color: red;
-            font-size: 12px;
-        }
-
+        /* Estilo del mensaje de éxito */
         .success {
             color: green;
             font-size: 14px;
@@ -71,29 +73,36 @@
 </head>
 <body>
 
+    <!-- Contenedor del formulario -->
     <div class="container">
         <h2>Ingreso de Datos del Cliente</h2>
+        <!-- Formulario para ingresar datos del cliente -->
         <form id="clienteForm">
+            <!-- Campo de cédula -->
             <label for="cedula">Cédula</label>
             <input type="text" id="cedula" placeholder="Ingrese la cédula" required>
-            <span id="cedulaError" class="error"></span>
 
+            <!-- Campo de apellidos -->
             <label for="apellidos">Apellidos</label>
             <input type="text" id="apellidos" placeholder="Ingrese los apellidos" required>
 
+            <!-- Campo de nombres -->
             <label for="nombres">Nombres</label>
             <input type="text" id="nombres" placeholder="Ingrese los nombres" required>
 
+            <!-- Campo de dirección -->
             <label for="direccion">Dirección</label>
             <input type="text" id="direccion" placeholder="Ingrese la dirección" required>
 
+            <!-- Campo de teléfono -->
             <label for="telefono">Teléfono</label>
             <input type="tel" id="telefono" placeholder="Ingrese el teléfono" required>
-            <span id="telefonoError" class="error"></span>
 
+            <!-- Campo de correo electrónico -->
             <label for="correo">Correo Electrónico</label>
             <input type="email" id="correo" placeholder="Ingrese el correo electrónico" required>
 
+            <!-- Campo de selección de ciudad -->
             <label for="ciudad">Ciudad</label>
             <select id="ciudad" required>
                 <option value="">Seleccione una ciudad</option>
@@ -103,41 +112,58 @@
                 <option value="Manta">Manta</option>
             </select>
 
+            <!-- Botón para enviar el formulario -->
             <button type="submit">Registrar Cliente</button>
+
+            <!-- Mensaje de resultado del envío -->
             <p id="resultado" class="success"></p>
         </form>
     </div>
 
     <script>
+        // Escuchar el evento 'submit' del formulario
         document.getElementById('clienteForm').addEventListener('submit', function(event) {
-            event.preventDefault();
-            
-            // Obtener los valores de los campos
-            let cedula = document.getElementById('cedula').value;
-            let telefono = document.getElementById('telefono').value;
-            let resultado = document.getElementById('resultado');
-            let cedulaError = document.getElementById('cedulaError');
-            let telefonoError = document.getElementById('telefonoError');
+            event.preventDefault();  // Evitar que el formulario se envíe de forma tradicional
 
-            // Resetear los mensajes de error
-            cedulaError.textContent = '';
-            telefonoError.textContent = '';
-            resultado.textContent = '';
+            // Capturar los datos del formulario
+            const cedula = document.getElementById('cedula').value;
+            const apellidos = document.getElementById('apellidos').value;
+            const nombres = document.getElementById('nombres').value;
+            const direccion = document.getElementById('direccion').value;
+            const telefono = document.getElementById('telefono').value;
+            const correo = document.getElementById('correo').value;
+            const ciudad = document.getElementById('ciudad').value;
 
-            // Validación básica de cédula (10 dígitos)
-            if (!/^\d{10}$/.test(cedula)) {
-                cedulaError.textContent = 'La cédula debe tener 10 dígitos numéricos.';
-                return;
-            }
+            // URL de la Web App de Google Apps Script (debe reemplazarse con la URL real)
+            const url = 'https://script.google.com/macros/s/AKfycbyUrLh1HRnmctNEGhNdjE0Q3yOFDiFzLBTHpFCfw1r3VEt9VHc48fw9layE31dj-cM4/exec';
 
-            // Validación básica de teléfono (7 a 10 dígitos)
-            if (!/^\d{7,10}$/.test(telefono)) {
-                telefonoError.textContent = 'El teléfono debe tener entre 7 y 10 dígitos numéricos.';
-                return;
-            }
-
-            // Si todo está correcto
-            resultado.textContent = 'Cliente registrado exitosamente!';
+            // Enviar los datos al servidor usando fetch con método POST
+            fetch(url, {
+                method: 'POST', // Usar el método POST para enviar los datos
+                mode: 'no-cors', // no-cors evita errores de dominio cruzado
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded' // Tipo de contenido que estamos enviando
+                },
+                // Los datos del formulario se envían como una cadena de parámetros URL
+                body: new URLSearchParams({
+                    'cedula': cedula,
+                    'apellidos': apellidos,
+                    'nombres': nombres,
+                    'direccion': direccion,
+                    'telefono': telefono,
+                    'correo': correo,
+                    'ciudad': ciudad
+                })
+            })
+            .then(() => {
+                // Mostrar mensaje de éxito al usuario
+                document.getElementById('resultado').textContent = 'Cliente registrado exitosamente!';
+            })
+            .catch(error => {
+                // Manejar errores y mostrar mensaje al usuario
+                document.getElementById('resultado').textContent = 'Error al registrar cliente';
+                console.error('Error:', error);
+            });
         });
     </script>
 
