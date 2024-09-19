@@ -3,44 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" type="image/x-icon" href="imagenes/favicon.ico">
     <title>Operaciones Matemáticas</title>
     <style>
+        /* Estilos generales para la página */
         body {
             font-family: Arial, sans-serif;
             background-color: #f0f0f0;
             text-align: center;
             padding: 20px;
         }
+
+        /* Estilo para el título principal */
         h1 {
             color: #333;
         }
+
+        /* Estilos para el contenedor del formulario */
         .container {
             background-color: white;
             border-radius: 8px;
             padding: 20px;
             max-width: 400px;
-            margin: 0 auto;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin: 0 auto; /* Centra el contenedor */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra para dar profundidad */
         }
+
+        /* Estilos para los campos de entrada */
         input[type="number"] {
-            width: 100%;
+            width: 100%; /* Hace que ocupen todo el ancho del contenedor */
             padding: 10px;
-            margin: 10px 0;
+            margin: 10px 0; /* Espaciado entre los campos */
             border-radius: 5px;
             border: 1px solid #ccc;
         }
+
+        /* Estilos para el botón de calcular */
         button {
             padding: 10px 20px;
             background-color: #28a745;
             color: white;
             border: none;
             border-radius: 5px;
-            cursor: pointer;
+            cursor: pointer; /* Cambia el cursor al pasar por encima */
         }
+
+        /* Efecto hover para el botón */
         button:hover {
-            background-color: #218838;
+            background-color: #218838; /* Cambia el color cuando el mouse está encima */
         }
+
+        /* Estilo para el área donde se muestran los resultados */
         .result {
             margin-top: 20px;
             padding: 10px;
@@ -52,39 +64,56 @@
 <body>
 
     <h1>Calculadora de Operaciones</h1>
+
+    <!-- Contenedor que incluye los campos para los números y el botón de cálculo -->
     <div class="container">
+        <!-- Etiqueta y campo para ingresar el primer número -->
         <label for="num1">Número 1:</label>
         <input type="number" id="num1" placeholder="Ingresa el primer número">
+
+        <!-- Etiqueta y campo para ingresar el segundo número -->
         <label for="num2">Número 2:</label>
         <input type="number" id="num2" placeholder="Ingresa el segundo número">
+
+        <!-- Botón para iniciar las operaciones -->
         <button onclick="realizarOperaciones()">Calcular</button>
-        
+
+        <!-- Contenedor donde se mostrarán los resultados de las operaciones -->
         <div id="resultado" class="result"></div>
     </div>
 
     <script>
+        /* Función que realiza las operaciones matemáticas */
         function realizarOperaciones() {
+            // Obtiene los valores ingresados por el usuario y los convierte a números
             let num1 = parseFloat(document.getElementById('num1').value);
             let num2 = parseFloat(document.getElementById('num2').value);
-            let resultado = '';
+            let resultado = ''; // Variable para acumular los resultados
 
+            // Verifica si los valores ingresados son números válidos
             if (isNaN(num1) || isNaN(num2)) {
                 resultado = 'Por favor ingresa ambos números.';
             } else {
+                // Bucle que realiza las 5 operaciones
                 for (let i = 1; i <= 5; i++) {
                     if (i === 1) {
+                        // Suma
                         resultado += `<p>1. Suma: ${num1 + num2}</p>`;
                     } else if (i === 2) {
+                        // Resta
                         resultado += `<p>2. Resta: ${num1 - num2}</p>`;
                     } else if (i === 3) {
+                        // Multiplicación
                         resultado += `<p>3. Multiplicación: ${num1 * num2}</p>`;
                     } else if (i === 4) {
+                        // División, se verifica que el divisor no sea 0
                         if (num2 !== 0) {
                             resultado += `<p>4. División: ${num1 / num2}</p>`;
                         } else {
                             resultado += `<p>4. División: No se puede dividir por 0</p>`;
                         }
                     } else if (i === 5) {
+                        // Módulo, también se verifica que el divisor no sea 0
                         if (num2 !== 0) {
                             resultado += `<p>5. Módulo: ${num1 % num2}</p>`;
                         } else {
@@ -94,9 +123,15 @@
                 }
             }
 
+            // Muestra los resultados en el contenedor con el id 'resultado'
             document.getElementById('resultado').innerHTML = resultado;
         }
     </script>
+    
+    <footer>
+        <p>Jesus Montes Toro - 2024</p>
+    </footer>
 
 </body>
 </html>
+
