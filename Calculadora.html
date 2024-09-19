@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/x-icon" href="imagenes/favicon.ico">
+    <title>Operaciones Matemáticas</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            text-align: center;
+            padding: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        .container {
+            background-color: white;
+            border-radius: 8px;
+            padding: 20px;
+            max-width: 400px;
+            margin: 0 auto;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #e9ecef;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Calculadora de Operaciones</h1>
+    <div class="container">
+        <label for="num1">Número 1:</label>
+        <input type="number" id="num1" placeholder="Ingresa el primer número">
+        <label for="num2">Número 2:</label>
+        <input type="number" id="num2" placeholder="Ingresa el segundo número">
+        <button onclick="realizarOperaciones()">Calcular</button>
+        
+        <div id="resultado" class="result"></div>
+    </div>
+
+    <script>
+        function realizarOperaciones() {
+            let num1 = parseFloat(document.getElementById('num1').value);
+            let num2 = parseFloat(document.getElementById('num2').value);
+            let resultado = '';
+
+            if (isNaN(num1) || isNaN(num2)) {
+                resultado = 'Por favor ingresa ambos números.';
+            } else {
+                for (let i = 1; i <= 5; i++) {
+                    if (i === 1) {
+                        resultado += `<p>1. Suma: ${num1 + num2}</p>`;
+                    } else if (i === 2) {
+                        resultado += `<p>2. Resta: ${num1 - num2}</p>`;
+                    } else if (i === 3) {
+                        resultado += `<p>3. Multiplicación: ${num1 * num2}</p>`;
+                    } else if (i === 4) {
+                        if (num2 !== 0) {
+                            resultado += `<p>4. División: ${num1 / num2}</p>`;
+                        } else {
+                            resultado += `<p>4. División: No se puede dividir por 0</p>`;
+                        }
+                    } else if (i === 5) {
+                        if (num2 !== 0) {
+                            resultado += `<p>5. Módulo: ${num1 % num2}</p>`;
+                        } else {
+                            resultado += `<p>5. Módulo: No se puede calcular el módulo con 0</p>`;
+                        }
+                    }
+                }
+            }
+
+            document.getElementById('resultado').innerHTML = resultado;
+        }
+    </script>
+
+</body>
+</html>
