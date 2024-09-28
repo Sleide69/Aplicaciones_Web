@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Vehículo - Control de Parqueaderos ULEAM</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="Registro_V.html">Registrar Vehículo</a></li>
+            <li><a href="Reservaciones.html">Reservar Parqueo</a></li>
+            <li><a href="login.html">Cerrar Sesión</a></li>
+        </ul>
+    </nav>
+
+    <div class="form-container">
+        <h2>Registrar Vehículo</h2>
+        <form id="vehiculoForm" onsubmit="return validarRegistroVehiculo()">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" placeholder="Ingrese su nombre completo" required>
+
+            <label for="placa">Placa del vehículo:</label>
+            <input type="text" id="placa" name="placa" placeholder="Ejemplo: ABC-1234" required>
+
+            <label for="modelo">Modelo del vehículo:</label>
+            <input type="text" id="modelo" name="modelo" placeholder="Ingrese el modelo del vehículo" required>
+
+            <label for="color">Color del vehículo:</label>
+            <input type="text" id="color" name="color" placeholder="Ingrese el color del vehículo" required>
+
+            <button type="submit">Registrar</button>
+        </form>
+    </div>
+
+    <script>
+        function validarRegistroVehiculo() {
+            var placa = document.getElementById("placa").value;
+            var patronPlaca = /^[A-Z]{3}-[0-9]{4}$/;
+
+            if (!patronPlaca.test(placa)) {
+                alert("La placa debe seguir el formato ABC-1234.");
+                return false;
+            }
+
+            alert("Vehículo registrado exitosamente.");
+            // Redirección a la página de reservas tras el registro exitoso
+            window.location.href = "Reservaciones.html";
+            return true;
+        }
+    </script>
+</body>
+</html>
+

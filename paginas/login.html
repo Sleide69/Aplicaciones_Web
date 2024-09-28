@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Control de Parqueaderos ULEAM</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="login-container">
+        <h2>Iniciar Sesión</h2>
+        <form id="loginForm" onsubmit="return validarLogin(event)">
+            <label for="username">Usuario:</label>
+            <input type="text" id="username" name="username" placeholder="Ingrese su usuario" required>
+            
+            <label for="password">Contraseña:</label>
+            <input type="password" id="password" name="password" placeholder="Ingrese su contraseña" required>
+            
+            <button type="submit">Ingresar</button>
+        </form>
+        <p>¿Olvidaste tu contraseña? <a href="#">Recuperar</a></p>
+    </div>
+
+    <script>
+        function validarLogin(event) {
+        // Evita que el formulario se envíe y recargue la página
+        event.preventDefault(); 
+
+        var username = document.getElementById("username").value;
+        var password = document.getElementById("password").value;
+
+        if (username === "" || password === "") {
+            alert("Por favor, complete todos los campos.");
+            return false;
+        }
+
+        // Simulación de validación y redirección a la página de registro de vehículos.
+        window.location.href = "Registro_V.html";
+        return true;
+    }
+
+    </script>
+</body>
+</html>
