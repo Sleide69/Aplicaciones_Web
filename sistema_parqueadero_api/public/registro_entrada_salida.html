@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Entrada y Salida</title>
+    <link rel="stylesheet" href="css/registro_entrada_salida.css">
+    <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
+</head>
+<body>
+    <div class="header">
+        <h1>Registro de Entrada y Salida</h1>
+    </div>
+
+    <div class="form-container">
+        <form  method="POST">
+            <h2>Registrar Movimiento de Vehículo</h2>
+
+            <label for="placa">Placa del Vehículo:</label>
+            <input type="text" id="placa" name="placa" placeholder="Ingrese la placa" required>
+
+            <label for="tipo">Tipo de Movimiento:</label>
+            <select id="tipo" name="tipo" required>
+                <option value="entrada">Entrada</option>
+                <option value="salida">Salida</option>
+            </select>
+
+            <button type="submit">Registrar Movimiento</button>
+        </form>
+    </div>
+
+        <!-- script para el registro de vehiculo -->
+        <script src="js/registro_vehiculo.js"></script>
+
+</body>
+</html>

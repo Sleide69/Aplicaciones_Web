@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reportes - Sistema de Parqueadero</title>
+    <link rel="stylesheet" href="css/reportes.css">
+</head>
+<body>
+    <div class="header">
+        <h1>Reportes de Incidentes en el Estacionamiento</h1>
+    </div>
+
+    <div class="sidebar">
+        <a href="dashboard.html">Panel de Control</a>
+        <a href="configuracion.html" class="active">Configuración del Sistema</a>
+        <a href="historial.html">Historial de Vehículos</a>
+        <a href="soporte.html">Soporte</a>
+        <a href="index.html">Cerrar Sesión</a>
+    </div>
+
+    <div class="form-container">
+        <form id="reportForm">
+            <label for="incidentType">Tipo de Incidente:</label>
+            <select id="incidentType" required>
+                <option value="">Seleccione un tipo de incidente</option>
+                <option value="no_show">Reserva no utilizada</option>
+                <option value="unauthorized_occupation">Ocupación no autorizada</option>
+                <option value="damage">Daños en el espacio</option>
+                <option value="other">Otro</option>
+            </select>
+
+            <label for="parkingSpot">Espacio de Estacionamiento:</label>
+            <input type="text" id="parkingSpot" placeholder="Ejemplo: A1, B2" required>
+
+            <label for="reportDescription">Descripción del Incidente:</label>
+            <textarea id="reportDescription" placeholder="Detalles del incidente" required></textarea>
+
+            <button type="submit">Registrar Reporte</button>
+
+            <label for="dataFormat">Formato de Datos:</label>
+            <select id="dataFormat">
+                <option value="json">JSON</option>
+                <option value="xml">XML</option>
+            </select>
+        </form>
+    </div>
+
+    <div class="report-list">
+        <h2>Lista de Reportes</h2>
+        <ul id="reportList"></ul>
+    </div>
+
+    <script src="js/reportes.js"></script>
+    <script src="js/storageHandler.js"></script>
+    <script src="js/paymentHandler.js"></script>
+
+
+</body>
+</html>

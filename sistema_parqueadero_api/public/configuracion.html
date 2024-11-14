@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configuración - Sistema de Parqueadero</title>
+    <link rel="stylesheet" href="css/configuracion.css">
+</head>
+<body>
+    <div class="header">
+        <h1>Configuración del Sistema</h1>
+    </div>
+
+    <div class="sidebar">
+        <a href="dashboard.html">Panel de Control</a>
+        <a href="configuracion.html" class="active">Configuración del Sistema</a>
+        <a href="historial.html">Historial de Vehículos</a>
+        <a href="soporte.html">Soporte</a>
+        <a href="index.html">Cerrar Sesión</a>
+    </div>
+
+    <div class="form-container">
+        <form id="configForm">
+            <h2>Configuración de Usuario</h2>
+
+            <label for="currentPassword">Contraseña Actual:</label>
+            <input type="password" id="currentPassword" placeholder="Ingrese su contraseña actual" required>
+
+            <label for="newPassword">Nueva Contraseña:</label>
+            <input type="password" id="newPassword" placeholder="Ingrese la nueva contraseña" required>
+
+            <label for="confirmPassword">Confirmar Nueva Contraseña:</label>
+            <input type="password" id="confirmPassword" placeholder="Confirme la nueva contraseña" required>
+
+            <label for="notifications">Notificaciones:</label>
+            <select id="notifications">
+                <option value="enabled">Habilitadas</option>
+                <option value="disabled">Deshabilitadas</option>
+            </select>
+
+            <button type="submit">Guardar Cambios</button>
+        </form>
+    </div>
+
+    <script src="js/configuracion.js"></script>
+    <script src="js/userHandler.js"></script>
+
+</body>
+</html>

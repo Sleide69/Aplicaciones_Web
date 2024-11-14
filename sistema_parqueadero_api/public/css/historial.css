@@ -1,0 +1,83 @@
+/* General styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.sidebar {
+    width: 200px;
+    background-color: #333333;
+    position: fixed;
+    height: 100%;
+    top: 0;
+    left: 0;
+    padding-top: 20px;
+}
+
+.sidebar a {
+    display: block;
+    color: white;
+    padding: 10px;
+    text-decoration: none;
+    margin: 5px 0;
+}
+
+.sidebar a:hover, .sidebar a.active {
+    background-color: #333333;
+}
+
+/* Title styling */
+h1 {
+    color: #333;
+    margin-top: 20px;
+    font-size: 2em;
+}
+
+/* Container for reservations */
+#reservasContainer {
+    width: 80%;
+    max-width: 600px;
+    margin-top: 20px;
+}
+
+/* Individual reservation box */
+.reserva {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Text inside each reservation box */
+.reserva p {
+    margin: 5px 0;
+    color: #555;
+    font-size: 1em;
+}
+
+/* Highlighted labels */
+.reserva p strong {
+    color: #333;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    #reservasContainer {
+        width: 90%;
+    }
+
+    h1 {
+        font-size: 1.5em;
+    }
+
+    .reserva {
+        padding: 10px;
+    }
+}

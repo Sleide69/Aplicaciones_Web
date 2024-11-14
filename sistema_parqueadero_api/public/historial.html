@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Historial de Reservas</title>
+    <link rel="stylesheet" href="css/historial.css">
+</head>
+<body>
+    <div class="sidebar">
+        <a href="dashboard.html">Panel de Control</a>
+        <a href="configuracion.html" class="active">Configuración del Sistema</a>
+        <a href="historial.html">Historial de Vehículos</a>
+        <a href="soporte.html">Soporte</a>
+        <a href="index.html">Cerrar Sesión</a>
+    </div>
+    <label for="dataFormat">Formato de Datos:</label>
+            <select id="dataFormat">
+                <option value="json">JSON</option>
+                <option value="xml">XML</option>
+            </select>
+
+    <h1>Historial de Reservas</h1>
+    <div id="reservasContainer"></div>
+
+    <script src="js/historial.js"></script>
+    <script src="js/storageHandler.js"></script>
+    <script src="js/reservationHandler.js"></script>
+
+
+</body>
+</html>

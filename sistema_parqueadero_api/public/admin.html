@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Administración</title>
+    <link rel="stylesheet" href="css/admin.css">
+    <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
+</head>
+<body>
+    <div class="header">
+        <h1>Panel de Administración</h1>
+    </div>
+
+    <div class="sidebar">
+        <a href="control_acceso.html">Control de Acceso</a>
+        <a href="registro_entrada_salida.html">Registro de Entrada y Salida</a>
+        <a href="reservas.html">Reservas de Espacios</a>
+        <a href="usuarios.html">Gestion de Usuarios</a>
+        <a href="configuracion_admin.html">configuracion</a>
+        <a href="index.html">Cerrar Sesión</a>
+    </div>
+
+    <div class="main">
+        <section id="control-acceso">
+            <h2>Control de Acceso</h2>
+            <p>Gestionar accesos de usuarios y seguridad del sistema.</p>
+            <button onclick="window.location.href='control_acceso.html'">Ir a Control de Acceso</button>
+        </section>
+
+        <section id="registro-entrada-salida">
+            <h2>Registro de Entrada y Salida</h2>
+            <p>Verificar el historial de vehículos que han entrado y salido del parqueadero.</p>
+            <button onclick="window.location.href='registro_entrada_salida.html'">Ver Registros</button>
+        </section>
+
+        <section id="reservas">
+            <h2>Reservas de Espacios</h2>
+            <p>Gestionar y visualizar las reservas de espacios de parqueo.</p>
+            <button onclick="window.location.href='reservas.html'">Gestionar Reservas</button>
+        </section>
+
+        <section id="soporte">
+            <h2>Soporte</h2>
+            <p>Contacta al equipo de soporte para asistencia técnica.</p>
+            <button onclick="window.location.href='soporte.html'">Ir a Soporte</button>
+        </section>
+    </div>
+
+    <script src="js/storageHandler.js"></script>
+
+</body>
+</html>

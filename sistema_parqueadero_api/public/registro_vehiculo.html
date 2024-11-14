@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Vehículos - Sistema de Parqueadero</title>
+    <link rel="stylesheet" href="css/registro.css">
+    <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
+</head>
+<body>
+    <div class="header">
+        <h1>Registro de Vehículos</h1>
+    </div>
+
+    <div class="sidebar">
+        <a href="dashboard.html">Panel de Control</a>
+        <a href="configuracion.html" class="active">Configuración del Sistema</a>
+        <a href="historial.html">Historial de Vehículos</a>
+        <a href="soporte.html">Soporte</a>
+        <a href="index.html">Cerrar Sesión</a>
+    </div>
+    
+    <div class="form-container">
+        <form id="vehicleForm">
+            <h2>Registrar un Vehículo</h2>
+
+            <label for="placa">Placa del Vehículo:</label>
+            <input type="text" id="placa" name="placa" placeholder="Ingrese la placa" required>
+
+            <label for="marca">Marca:</label>
+            <input type="text" id="marca" name="marca" placeholder="Ingrese la marca" required>
+
+            <label for="modelo">Modelo:</label>
+            <input type="text" id="modelo" name="modelo" placeholder="Ingrese el modelo" required>
+
+            <label for="color">Color:</label>
+            <input type="text" id="color" name="color" placeholder="Ingrese el color" required>
+
+            <button type="submit">Registrar Vehículo</button>
+
+            <label for="dataFormat">Formato de Datos:</label>
+            <select id="dataFormat">
+                <option value="json">JSON</option>
+                <option value="xml">XML</option>
+            </select>
+
+        </form>
+    </div>
+
+    <!-- script para el registro de vehiculo -->
+    <script src="js/registro_vehiculo.js"></script>
+    <script src="js/storageHandler.js"></script>
+    <script src="js/userHandler.js"></script>
+
+
+
+</body>
+</html>
